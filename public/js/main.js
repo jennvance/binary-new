@@ -1,32 +1,12 @@
 var vm = new Vue({
 	el: "#clock",
 	data: {
-		hours: {
-			one: false,
-			two: false,
-			four: false,
-			eight: false,
-			sixteen: true
-		},
-		minutes: {
-			one: false,
-			two: false,
-			four: false,
-			eight: false,
-			sixteen: false,
-			thirtytwo: false
-		},
-		seconds: {
-			one: false,
-			two: false,
-			four: false,
-			eight: false,
-			sixteen: false,
-			thirtytwo: false
-		}
+		hoursArr: [],
+		minutesArr: [],
+		secondsArr: []
 	},
 	methods: {
-		checkTime: function(i){
+		militarizeTime: function(i){
 			if (i < 10 ){
 				return "0" + i
 			} 
@@ -34,34 +14,39 @@ var vm = new Vue({
 				return i
 			}			
 		},
-		startTime: function(){
+		captureTime: function(){
 			var currentTime = new Date()
-			//get time; make it human readable
-			var hours = this.checkTime(currentTime.getHours())
-			var minutes = this.checkTime(currentTime.getMinutes())
-			var seconds = this.checkTime(currentTime.getSeconds())
+			//didnt use this, might delete
+			var hours = this.militarizeTime(currentTime.getHours())
+			var minutes = this.militarizeTime(currentTime.getMinutes())
+			var seconds = this.militarizeTime(currentTime.getSeconds())
 			console.log(hours + ":" + minutes + ":" + seconds)
-			//get binary time
-			var hoursBi = currentTime.getHours().toString(2)
-			var minutesBi = currentTime.getMinutes().toString(2);
-			var secondsBi = currentTime.getSeconds().toString(2);
-			console.log("The time in binary is:", hoursBi, minutesBi, secondsBi)
-			//ensure all numbers are 6 digits
-			//.....
+			//end deletable
+			
+			var hoursBi = this.toSix(currentTime.getHours().toString(2))
+			var minutesBi = this.toSix(currentTime.getMinutes().toString(2))
+			var secondsBi = this.toSix(currentTime.getSeconds().toString(2))
+			this.renderSeconds(hoursBi, minutesBi, secondsBi)
 		},
-		correctDigits: function(){
-
+		toSix: function(binaryString){
+			var numZeroes = 6 - binaryString.length
+			var zeroString = ""
+			for(var i=0;i<numZeroes; i++){
+				zeroString += "0"
+			}
+			var stringOfSix = zeroString + binaryString
+			return stringOfSix
+		},
+		renderSeconds: function(hours, minutes, seconds){
+			this.hoursArr = hours.split("").map(Number)
+			this.minutesArr = minutes.split("").map(Number)
+			this.secondsArr = seconds.split("").map(Number)
 		}
-
 	},
 	created: function(){
-
-		console.log(this.seconds.one)
-
 		setInterval(()=>{
-			this.startTime()
+			this.captureTime()
 		}, 1000)
+		this.captureTime()
 	}
 })
-
-// console.log("The time in binary is:", newHours, newMins, newSecs)

@@ -23,6 +23,12 @@ body {
 	margin: 0 auto;
 }
 
+.wrapper div {
+	min-height: 50px;
+	min-width: 50px;
+	margin: 5% auto;
+}
+
 .invisible {
 	background-color: white;
 }
