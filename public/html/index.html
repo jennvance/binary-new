@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Time in Binary</title>
 	<link type="text/css" rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+<div id="clock">
+	<div class="wrapper">
+		<div class="dot invisible"></div>
+		<div v-bind:class="{ dot: minutes.thirtytwo }"></div>
+		<div v-bind:class="{ dot: seconds.thirtytwo }"></div>
+		<div v-bind:class="{ dot: hours.sixteen }"></div>
+		<div v-bind:class="{ dot: minutes.sixteen }"></div>
+		<div v-bind:class="{ dot: seconds.sixteen }"></div>
+
+		<div v-bind:class="{ dot: hours.eight }"></div>
+		<div v-bind:class="{ dot: minutes.eight }"></div>
+		<div v-bind:class="{ dot: seconds.eight }"></div>
+		<div v-bind:class="{ dot: hours.four }"></div>
+		<div v-bind:class="{ dot: minutes.four }"></div>
+		<div v-bind:class="{ dot: seconds.four }"></div>
+
+		<div v-bind:class="{ dot: hours.two }"></div>
+		<div v-bind:class="{ dot: minutes.two }"></div>
+		<div v-bind:class="{ dot: seconds.two }"></div>
+		<div v-bind:class="{ dot: hours.one }"></div>
+		<div v-bind:class="{ dot: minutes.one }"></div>
+		<div v-bind:class="{ dot: seconds.one }"></div>
+	</div>
+<!-- 	<div class="clock-container">
+		<div class="row">
+			<div class="col left"></div>
+			<div class="col center"></div>
+			<div class="col right"></div>
+		</div>
+		<div class="row">
+			<div class="col left"></div>
+			<div class="col center"></div>
+			<div class="col right"></div>
+		</div>
+		<div class="row">
+			<div class="col left"></div>
+			<div class="col center"></div>
+			<div class="col right"></div>
+		</div>
+		<div class="row">
+			<div class="col left"></div>
+			<div class="col center"></div>
+			<div class="col right"></div>
+		</div>
+		<div class="row">
+			<div class="col left"></div>
+			<div class="col center"></div>
+			<div class="col right"></div>
+		</div>
+		<div class="row">
+			<div class="col left"></div>
+			<div class="col center"></div>
+			<div class="col right"></div>
+		</div>
+	</div> -->
 
 
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 

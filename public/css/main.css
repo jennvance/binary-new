@@ -1,3 +1,29 @@
 body {
 	background-color: peachpuff;
 }
+
+.clock-container {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.dot {
+	height: 50px;
+	width: 50px;
+	background-color: black;
+	border-radius: 25px;
+	margin: 5% auto;
+}
+
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.invisible {
+	background-color: white;
+}
+
