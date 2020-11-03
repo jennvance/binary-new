@@ -1,1 +1,1 @@
-# Binary clock, written with Vue.js
+## Binary clock, written with Vue.js
